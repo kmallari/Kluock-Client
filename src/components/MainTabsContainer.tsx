@@ -22,17 +22,17 @@ export const TabsContainer: React.FC<TabsContainerProps> = ({
   ];
 
   return (
-    <ul className='w-full bg-emerald-200/60 grid grid-cols-4'>
+    <ul className='w-full bg-blue-100 grid grid-cols-4'>
       {tabs.map((tab, i) => (
         <li
-          className={`flex justify-center hover:bg-emerald-300/50 font-semibold text-slate-700 transition-all ${
-            currentTab === i ? "bg-emerald-300/40" : ""
+          className={`flex justify-center hover:bg-blue-200 font-semibold text-slate-700 transition-all ${
+            currentTab === i ? "bg-blue-300/40" : ""
           }`}
           key={i}
         >
           <button
             className={`flex flex-col items-center justify-center gap-1 text-center w-full h-full py-3 relative ${
-              currentTab === i ? "text-emerald-700 " : ""
+              currentTab === i ? "text-blue-700 " : ""
             }`}
             onClick={() => setCurrentTab(i)}
           >
@@ -40,7 +40,7 @@ export const TabsContainer: React.FC<TabsContainerProps> = ({
             <div className='text-xs'>{tab.name}</div>
             <div
               className={`absolute ${
-                currentTab === i ? "h-[2px] bg-emerald-700 w-1/3 bottom-0" : ""
+                currentTab === i ? "h-[2px] bg-blue-700 w-1/3 bottom-0" : ""
               }`}
             ></div>
           </button>

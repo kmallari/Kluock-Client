@@ -24,14 +24,14 @@ export const VaultTabsContainer: React.FC<VaultTabsContainerProps> = ({
     <ul className='grid grid-cols-2 gap-4 px-4 h-[40px]'>
       {tabs.map((tab, i) => (
         <li
-          className={`flex justify-center  hover:bg-emerald-200/50 font-medium text-slate-700 transition-all rounded-lg ${
-            currentTab === i ? "bg-emerald-200/80" : ""
+          className={`flex justify-center hover:bg-blue-200 font-medium text-slate-700 transition-all rounded-lg ${
+            currentTab === i ? "bg-blue-200" : ""
           }`}
           key={i}
         >
           <button
             className={`flex flex-row items-center justify-center gap-1 text-center w-full h-full py-2 relative ${
-              currentTab === i ? "text-emerald-800 " : ""
+              currentTab === i ? "text-blue-800 " : ""
             }`}
             onClick={() => setCurrentTab(i)}
           >

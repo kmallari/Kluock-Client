@@ -12,6 +12,7 @@ export const VaultContext = createContext<{
   suggestedCredentials: Credentials[];
   allCredentials: Credentials[];
   personalInfo: string | null; // change this
+  credentiialsSize: number;
 } | null>(null);
 
 function App() {
@@ -19,22 +20,24 @@ function App() {
   const [currentTab, setCurrentTab] = useState(0);
   const [suggestedCreds, setSuggestedCreds] = useState<Credentials[]>([]);
   const [allCreds, setAllCreds] = useState<Credentials[]>([]);
+  const [size, setSize] = useState(0);
   useEffect(() => {
     // const browserUrl = window.location.href;
     const browserUrl = "fb.com";
 
     axios.get(apiUrl + `/site/${browserUrl}/`).then((res) => {
       setSuggestedCreds(res.data);
-      console.log({ suggestedData: res.data });
+      // console.log({ suggestedData: res.data });
     });
     axios.get(apiUrl + "/").then((res) => {
-      setAllCreds(res.data);
-      console.log({ allData: res.data });
+      setAllCreds(res.data.data);
+      setSize(res.data.size);
+      // console.log({ allData: res.data });
     });
   }, []);
 
   return (
-    <main className='w-[350px] h-[560px] text-emerald-900 bg-white'>
+    <main className='w-[350px] h-[560px] text-blue-900 bg-white'>
       <TabsContainer currentTab={currentTab} setCurrentTab={setCurrentTab} />
       {currentTab === 0 && (
         <VaultContext.Provider
@@ -42,6 +45,7 @@ function App() {
             suggestedCredentials: suggestedCreds,
             allCredentials: allCreds,
             personalInfo: "",
+            credentiialsSize: size,
           }}
         >
           <VaultTab />
