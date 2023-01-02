@@ -8,7 +8,7 @@ interface VaultTabProps {}
 export const VaultTab: React.FC<VaultTabProps> = ({}) => {
   const [currentVaultTab, setCurrentVaultTab] = useState(0);
   return (
-    <div className='p-4'>
+    <div className='pt-4 flex flex-col content-between h-[492px]'>
       <VaultTabsContainer
         currentTab={currentVaultTab}
         setCurrentTab={setCurrentVaultTab}

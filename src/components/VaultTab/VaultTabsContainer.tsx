@@ -21,7 +21,7 @@ export const VaultTabsContainer: React.FC<VaultTabsContainerProps> = ({
     },
   ];
   return (
-    <ul className='grid grid-cols-2 gap-4'>
+    <ul className='grid grid-cols-2 gap-4 px-4 h-[40px]'>
       {tabs.map((tab, i) => (
         <li
           className={`flex justify-center  hover:bg-emerald-200/50 font-medium text-slate-700 transition-all rounded-lg ${
